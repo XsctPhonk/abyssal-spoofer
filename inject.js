@@ -22,7 +22,12 @@ function skipTutorial() {
 }
 
 function receiveAccount() {
-  fetch("/supabase/createUser.js")
+  fetch(// INJECT.JS: Run bot on "Receive Account" click
+function receiveAccount() {
+  const config = getSelectedHacks();
+  createProdigyAccount(config);)
+}
+
     .then(res => res.json())
     .then(data => alert("Login:\n" + data.email + "\n" + data.password));
 }
